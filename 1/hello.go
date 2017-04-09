@@ -39,6 +39,25 @@
 //}
 
 //结构体字段
+//package main
+//
+//import "fmt"
+//
+//type Vertex struct {
+//	X int
+//	Y int
+//}
+//
+//func main() {
+//	v := Vertex{1, 2}
+//	//v.X = 4
+//	fmt.Println(v.X)
+//}
+
+// 结构指针
+// 结构体字段可以通过结构体指针来访问。
+
+//通过指针间接的访问是透明的。
 package main
 
 import "fmt"
@@ -50,6 +69,7 @@ type Vertex struct {
 
 func main() {
 	v := Vertex{1, 2}
-	v.X = 4
-	fmt.Println(v.X)
+	p := &v
+	p.X = 1e9
+	fmt.Println(v)
 }
