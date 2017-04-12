@@ -58,18 +58,30 @@
 // 结构体字段可以通过结构体指针来访问。
 
 //通过指针间接的访问是透明的。
+//package main
+//
+//import "fmt"
+//
+//type Vertex struct {
+//	X int
+//	Y int
+//}
+//
+//func main() {
+//	v := Vertex{1, 2}
+//	p := &v
+//	p.X = 1e9
+//	fmt.Println(v)
+//}
+
 package main
 
 import "fmt"
 
-type Vertex struct {
-	X int
-	Y int
-}
-
 func main() {
-	v := Vertex{1, 2}
-	p := &v
-	p.X = 1e9
-	fmt.Println(v)
+	var a [3]string
+	a[0] = "Hello"
+	a[1] = "World"
+	fmt.Println(a[0], a[1])
+	fmt.Println(a)
 }
