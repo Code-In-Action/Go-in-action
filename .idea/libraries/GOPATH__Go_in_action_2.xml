@@ -2,9 +2,13 @@
   <library name="GOPATH &lt;Go-in-action&gt;">
     <CLASSES>
       <root url="file://$USER_HOME$/.nvm/versions/node/v7.2.1/bin/src/github.com" />
+      <root url="file://$USER_HOME$/.nvm/versions/node/v7.2.1/bin/src/sourcegraph.com" />
+      <root url="file://$USER_HOME$/.nvm/versions/node/v7.2.1/bin/src/golang.org" />
     </CLASSES>
     <SOURCES>
       <root url="file://$USER_HOME$/.nvm/versions/node/v7.2.1/bin/src/github.com" />
+      <root url="file://$USER_HOME$/.nvm/versions/node/v7.2.1/bin/src/sourcegraph.com" />
+      <root url="file://$USER_HOME$/.nvm/versions/node/v7.2.1/bin/src/golang.org" />
     </SOURCES>
     <excluded>
       <root url="file://$PROJECT_DIR$" />
