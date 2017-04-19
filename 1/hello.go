@@ -117,22 +117,62 @@
 
 
 // 构造 slice
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	a := make([]int, 5)
+//	printSlice("a", a)
+//	b := make([]int, 0, 5)
+//	printSlice("b", b)
+//	c := b[:2]
+//	printSlice("c", c)
+//	d := c[2:5]
+//	printSlice("d", d)
+//}
+//
+//func printSlice(s string, x []int) {
+//	fmt.Printf("%s len=%d cap=%d %v\n",
+//		s, len(x), cap(x), x)
+//}
+
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var z []int
+//	fmt.Println(z, len(z), cap(z))
+//	if z == nil {
+//		fmt.Println("nil!")
+//	}
+//}
+
+//package main
+//
+//import "fmt"
+//
+//var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+//
+//func main() {
+//	for i, v := range pow {
+//		fmt.Printf("2**%d = %d\n", i, v)
+//	}
+//}
+
+
 package main
 
 import "fmt"
 
 func main() {
-	a := make([]int, 5)
-	printSlice("a", a)
-	b := make([]int, 0, 5)
-	printSlice("b", b)
-	c := b[:2]
-	printSlice("c", c)
-	d := c[2:5]
-	printSlice("d", d)
-}
-
-func printSlice(s string, x []int) {
-	fmt.Printf("%s len=%d cap=%d %v\n",
-		s, len(x), cap(x), x)
+	pow := make([]int, 10)
+	for i := range pow {
+		pow[i] = 1 << uint(i)
+	}
+	fmt.Printf("%d\n", pow)
+	for _, value := range pow {
+		fmt.Printf("%d\n", value)
+	}
 }
