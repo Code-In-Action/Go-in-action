@@ -117,22 +117,144 @@
 
 
 // 构造 slice
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	a := make([]int, 5)
+//	printSlice("a", a)
+//	b := make([]int, 0, 5)
+//	printSlice("b", b)
+//	c := b[:2]
+//	printSlice("c", c)
+//	d := c[2:5]
+//	printSlice("d", d)
+//}
+//
+//func printSlice(s string, x []int) {
+//	fmt.Printf("%s len=%d cap=%d %v\n",
+//		s, len(x), cap(x), x)
+//}
+
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var z []int
+//	fmt.Println(z, len(z), cap(z))
+//	if z == nil {
+//		fmt.Println("nil!")
+//	}
+//}
+
+//package main
+//
+//import "fmt"
+//
+//var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+//
+//func main() {
+//	for i, v := range pow {
+//		fmt.Printf("2**%d = %d\n", i, v)
+//	}
+//}
+
+
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	pow := make([]int, 10)
+//	for i := range pow {
+//		pow[i] = 1 << uint(i)
+//	}
+//	fmt.Printf("%d\n", pow)
+//	for _, value := range pow {
+//		fmt.Printf("%d\n", value)
+//	}
+//}
+
+// map 的文法
+//package main
+//
+//import "fmt"
+//
+//type Vertex struct {
+//	Lat, Long float64
+//}
+//
+//var m = map[string]Vertex{
+//	"Bell Labs": Vertex{
+//		40.68433, -74.39967,
+//	},
+//	"Google": Vertex{
+//		37.42202, -122.08408,
+//	},
+//}
+//
+//func main() {
+//	fmt.Println(m)
+//}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	m := make(map[string]int)
+//
+//	m["Answer"] = 42
+//	fmt.Println("The value:", m["Answer"])
+//
+//	m["Answer"] = 48
+//	fmt.Println("The value:", m["Answer"])
+//
+//	delete(m, "Answer")
+//	fmt.Println("The value:", m["Answer"])
+//
+//	v, ok := m["Answer"]
+//	fmt.Println("The value:", v, "Present?", ok)
+//}
+
+//函数
+//package main
+//
+//import (
+//	"fmt"
+//	"math"
+//)
+//
+//func main() {
+//	hypot := func(x, y float64) float64 {
+//		return math.Sqrt(x*x + y*y)
+//	}
+//
+//	fmt.Println(hypot(3, 4))
+//}
+
+//函数的闭包
+//Go 函数可以是闭包的。闭包是一个函数值，它来自函数体的外部的变量引用。 函数可以对这个引用值进行访问和赋值；换句话说这个函数被“绑定”在这个变量上。
 package main
 
 import "fmt"
 
-func main() {
-	a := make([]int, 5)
-	printSlice("a", a)
-	b := make([]int, 0, 5)
-	printSlice("b", b)
-	c := b[:2]
-	printSlice("c", c)
-	d := c[2:5]
-	printSlice("d", d)
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
 }
 
-func printSlice(s string, x []int) {
-	fmt.Printf("%s len=%d cap=%d %v\n",
-		s, len(x), cap(x), x)
+func main() {
+	pos, neg := adder(), adder()
+	for i := 0; i < 10; i++ {
+		fmt.Println(
+			pos(i),
+			neg(-2*i),
+		)
+	}
 }
