@@ -7,7 +7,7 @@ import (
 
 // A map of registered matchers for searching.
 
-var matchers = make(map[string]Matcher)
+var matchers = make(map[string]Matcher);
 
 // Run performs the search logic.
 // run执行搜索逻辑
@@ -15,21 +15,21 @@ func Run(searchTerm string) {
 	// Retrieve the list of feeds to search through.
 	feeds, err := RetrieveFeeds()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(err);
 	}
 
 	// Create an unbuffered channel to receive match results to display.
 	// 创建一个无缓冲通道
-	results := make(chan *Result)
+	results := make(chan *Result);
 
 	// Setup a wait group so we can process all the feeds.
 	// 构造一个waitgroup，以便处理所有的数据源
-	var waitGroup sync.WaitGroup
+	var waitGroup sync.WaitGroup;
 
 	// Set the number of goroutines we need to wait for while
 	// they process the individual feeds.
 	// 设置需要等待处理每个数据的 goroutine
-	waitGroup.Add(len(feeds))
+	waitGroup.Add(len(feeds));
 
 	// Launch a goroutine for each feed to find the results.
 	for _, feed := range feeds {
